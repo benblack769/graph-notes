@@ -1,3 +1,5 @@
 type_id,type_name,color
-idea,Idea,blue
-language,Language,yellow
+idea,Idea,black
+language,Language,green
+algorithm,Algorithm,blue
+system,System,red

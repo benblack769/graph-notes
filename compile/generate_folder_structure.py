@@ -17,7 +17,7 @@ def construct_html_from_markdown(source_folder,dest_folder):
 def copy_static(source_folder,dest_folder):
     copy_tree(source_folder,dest_folder)
 
-def generate_everything(source_folder,dest_folder):
+def generate_all_files(source_folder,dest_folder):
     construct_html_from_markdown(os.path.join(source_folder,"long_descriptions"),os.path.join(dest_folder,"long_descriptions"))
     copy_static(os.path.join(source_folder,"linked_data"),os.path.join(dest_folder,"linked_data"))
     graph_path = os.path.join(dest_folder,"graphs")
@@ -33,4 +33,4 @@ def generate_everything(source_folder,dest_folder):
 
 if __name__ == "__main__":
     #construct_html_from_markdown("examples/computer_science/long_descriptions/","test_out/long_descriptions/")
-    generate_everything("examples/computer_science/","test_out/")
+    generate_all_files("examples/computer_science/","test_out/")

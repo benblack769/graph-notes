@@ -1,4 +1,14 @@
-node,type,short_description,long_description_fname
-code,idea,A very precise description of some idea,NA
-algorithms,idea,A procedure that always gives the same output,NA
-python,language,A popular C based language inspired by pseudocode,python.md
+node,type,title,short_description,long_description_fname
+database,idea,Database,A data storage system with efficient methods to access and store data elements,NA
+relational_database,idea,Relational Database,A database which stores a collection of tables and provides ablities to access the table rows,NA
+SQL,language,SQL,The standard language for manipulating relational databases,sql.md
+RDBMS,system,RDBMS,Stands for Relational Database Management System,NA
+sorting,idea,Sorting,reordering data so that it is ascending or descending with respect to some key,NA
+mergesort,algorithm,Merge Sort,recursive sorting algorithm based of merging two sorted lists into one,mergesort.md
+merge,algorithm,Merge,combining two sorted lists into one,merge.md
+binary_search,algorithm,Binary Search,searching a sorted list for a specific item,binary_search.md
+NoSQL,system,NoSQL Database,Marketing term for databases that have some system other than SQL,NA
+data_consistency,idea,Data Consistency,Inconsistent data is when you querry the same key of a database and get two different responses,NA
+eventual_consistency,idea,Eventual Consistency,If you let the database churn for long enough without changing the entry every querry will give the same response,NA
+read_your_write,idea,Read-Your-Write Consistency,Once an element is updated,every querry afterward gives same response,NA
+read_after_write,idea,Read-after-Write Consistency,Once an element is created for the first time,every querry afterward gives same response,NA

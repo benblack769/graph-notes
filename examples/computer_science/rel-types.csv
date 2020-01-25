@@ -1,3 +1,10 @@
 type_id,type_name,color
-inspiration,Inspiration,red
-instatiation,Instatiation,green
+specialization,Specialization,red
+generalization,Generalization,green
+specification,Specification,black
+inspiration,Inspiration,black
+procedure,Procedure,black
+application,Application,black
+requirement,Requirement,black
+dependent,Dependent,black
+implementation,Implementation,black

@@ -19,7 +19,7 @@ def key_dictlist_by(dicts,key):
 def read_file(fname):
     with open(fname) as file:
         return file.read()
-        
+
 def write_file(fname,text):
     with open(fname,'w') as file:
         file.write(text)
