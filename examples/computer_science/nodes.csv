@@ -1,0 +1,4 @@
+node,type,short_description,long_description_fname
+code,idea,A very precise description of some idea,NA
+algorithms,idea,A procedure that always gives the same output,NA
+python,language,A popular C based language inspired by pseudocode,python.md

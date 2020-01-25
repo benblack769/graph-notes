@@ -1,0 +1,10 @@
+.legend_box {
+  float: left;
+  height: 1.2em;
+  width: 1.2em;
+  border: 1px solid black;
+  clear: both;
+}
+.legend_table{
+border: 1px solid black;
+}
