@@ -22,17 +22,34 @@ def call_graphviz(graphviz_code):
     graphviz_args = "dot -Tsvg".split(' ')
     out = subprocess.run(graphviz_args,input=graphviz_code,stdout=subprocess.PIPE,encoding="utf-8").stdout
     #print("\n".join(out.split("\n")[:3]))
-    stripped = "\n".join(out.split("\n")[3:])
-    return stripped
+    #stripped = "\n".join(out.split("\n"))
+    return out
 
-def filter_nodes(nodes,relations):
-    adj_list = {n['node']:[rel['dest'] for rel in relations if rel['source'] == n['node']] for n in nodes}
+def get_adj_list(nodes,relations):
+    return {n['node']:[rel['dest'] for rel in relations if rel['source'] == n['node']] for n in nodes}
 
+def score_nodes(root,adj_list):
+    scores = dict()
+    depth_nodes = [root]
+    for x in range(10):
+        new_depth_nodes = []
+        for n in depth_nodes:
+            if n not in scores:
+                scores[n] = 8.**(-x) * (1+1e-5*len(adj_list[n]))
+                for e in adj_list[n]:
+                    new_depth_nodes.append(e)
+
+        depth_nodes = new_depth_nodes
+
+    sortables_scores = [(v,k) for k,v in scores.items()]
+    sortables_scores.sort(reverse=True)
+    return [n for v,n in sortables_scores]
 
 def generate_all_graphs(dest_folder,nodes,relations,node_types,rel_types):
-    node_names = [n['node'] for n in nodes]
+    adj_list = get_adj_list(nodes,relations)
     os.makedirs(dest_folder,exist_ok=True)
     for node in nodes:
+        node_names = score_nodes(node['node'],adj_list)[:5]
         fname = node['node']+".svg"
         dest_path = os.path.join(dest_folder,fname)
         viz_code = generate_graphviz_code(nodes,relations,node_names,node_types,rel_types)
