@@ -1,4 +1,4 @@
-from utils import read_csv,join,linejoin
+from compile.utils import read_csv,join,linejoin
 
 
 def generate_legend_part(types):

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
 
     <title>Info Graph</title>
 
@@ -21,7 +21,7 @@
 <body>
     <div id="display_area">
         <div class="popup_button" id="popup_button">
-            hi there
+            Description
         </div>
         <div class="graphdisplay">
             <div id="svg_container">
@@ -65,14 +65,15 @@
             </div>
         </div>
         <div class="legend">
-            <div class="legend_table">
-                <h4>Node types</h4>
-                <table><tr><th>Color</th><th>Name</th></tr><tr><td><span class="legend_box" style="background-color:blue"></span></td><td>Idea</td></tr><tr><td><span class="legend_box" style="background-color:yellow"></span></td><td>Language</td></tr></table>
-            </div>
-            <div class="legend_table">
-                <h4>Relation types</h4>
-                <table><tr><th>Color</th><th>Name</th></tr><tr><td><span class="legend_box" style="background-color:red"></span></td><td>Inspiration</td></tr><tr><td><span class="legend_box" style="background-color:green"></span></td><td>Instatiation</td></tr></table>
-            </div>
+                <div class="legend_table">
+                    <h4>Node types</h4>
+                    <table><tr><th>Color</th><th>Name</th></tr><tr><td><span class="legend_box" style="background-color:black"></span></td><td>Idea</td></tr><tr><td><span class="legend_box" style="background-color:green"></span></td><td>Language</td></tr><tr><td><span class="legend_box" style="background-color:blue"></span></td><td>Algorithm</td></tr><tr><td><span class="legend_box" style="background-color:red"></span></td><td>System</td></tr></table>
+                </div>
+                <div class="legend_table">
+                    <h4>Relation types</h4>
+                    <table><tr><th>Color</th><th>Name</th></tr><tr><td><span class="legend_box" style="background-color:red"></span></td><td>Specialization</td></tr><tr><td><span class="legend_box" style="background-color:green"></span></td><td>Generalization</td></tr><tr><td><span class="legend_box" style="background-color:black"></span></td><td>Specification</td></tr><tr><td><span class="legend_box" style="background-color:black"></span></td><td>Inspiration</td></tr><tr><td><span class="legend_box" style="background-color:black"></span></td><td>Procedure</td></tr><tr><td><span class="legend_box" style="background-color:black"></span></td><td>Application</td></tr><tr><td><span class="legend_box" style="background-color:black"></span></td><td>Requirement</td></tr><tr><td><span class="legend_box" style="background-color:black"></span></td><td>Dependent</td></tr><tr><td><span class="legend_box" style="background-color:black"></span></td><td>Implementation</td></tr></table>
+                </div>
+            
         </div>
     </div>
 </body>
