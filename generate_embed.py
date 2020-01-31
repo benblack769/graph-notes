@@ -4,9 +4,8 @@ from compile.generate_folder_structure import generate_all_files
 import json
 
 
-def generate_base(source_folder):
+def generate_base(source_folder,dest_folder):
     pjoin = os.path.join
-    dest_folder = "test_out"
     generate_all_files(source_folder,dest_folder)
 
     base_template = read_file("templates/base.html")
