@@ -9,11 +9,16 @@ This is a python project. Depends on python 3.7. Also has a system dependency an
 
 binary dependencies:
 
-    sudo apt install graphviz
+    sudo apt install graphviz, ruby, node, npm
 
-python package:
+ruby packages:
 
-    pip install markdown2
+    sudo gem install rouge, kramdown-math-katex
+
+node packages:
+
+    sudo npm install -g katex
+
 
 ### Example output
 

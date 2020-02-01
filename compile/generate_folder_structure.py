@@ -1,10 +1,21 @@
 import os
 from compile.utils import read_file,write_file,read_csv,key_dictlist_by
-import markdown2
+#import markdown2
 from distutils.dir_util import copy_tree
 from compile.generate_graphs import generate_all_graphs,save_graphs_as_files,encode_graphs_as_html
 from compile.generate_legend import generate_legend
 import json
+import subprocess
+
+def compile_kramdown(fname):
+    kramdown_args = [
+        "ruby",
+        "compile/kram.rb",
+        fname
+    ]
+    out = subprocess.run(kramdown_args,stdout=subprocess.PIPE,encoding="utf-8").stdout
+    print(out)
+    return out
 
 def construct_html_from_markdown(source_folder,dest_folder):
     os.makedirs(dest_folder,exist_ok=True)
@@ -12,7 +23,7 @@ def construct_html_from_markdown(source_folder,dest_folder):
         if ".md" == fname[-3:]:
             source_path = os.path.join(source_folder,fname)
             dest_path = os.path.join(dest_folder,fname)+".html"
-            out_html = markdown2.markdown(read_file(source_path), extras=["fenced-code-blocks","header-ids","markdown-in-html","tables","wiki-tables"])
+            out_html = compile_kramdown(source_path)#, extras=["fenced-code-blocks","header-ids","markdown-in-html","tables","wiki-tables"])
             write_file(dest_path,out_html)
 
 def copy_static(source_folder,dest_folder):
