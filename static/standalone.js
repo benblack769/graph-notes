@@ -37,28 +37,44 @@ function setup_long_descript(node_info){
     }
 }
 function setup_state(node_data,node_name){
+    var parent_div = document.getElementById("graphdis")
     var svg_obj = document.getElementById("svg_obj");
     var svg = svg_obj.firstChild;
     var elipse_el = $("#"+node_name+"__el ellipse").get()[0];
     //var elipse_el =
     var graph_div = document.getElementById("svg_container");
     //set the size and position of the parent div
-    graph_div.style.position = "absolute";
-    graph_div.style.width = svg.width * 2 - 100;
-    graph_div.style.height = svg.height * 2 - 100;
+    //graph_div.style.position = "absolute";
+    console.log(svg.width.baseVal.value)
+    var swidth = svg.width.baseVal.value;//svg.width.substring(svg.width.length-2)
+    var sheight = svg.height.baseVal.value;//svg.width.substring(svg.height.length-2)
+    console.log(swidth)
+    graph_div.style.width = (swidth * 2 - 100) + "px";
+    graph_div.style.height = (sheight * 2 - 100) + "px";
 
-    graph_div.style.left = -svg.width + 100;
-    graph_div.style.top = -svg.height + 100;
+    svg_obj.style.position = "relative"
+    svg_obj.style.top = sheight/2+"px";
+    svg_obj.style.left = swidth/2+"px";
+    //graph_div.style.left = (-svg.width + 100) + "px";
+    //graph_div.style.top = (-svg.height + 100) + "px";
 
     //set position of svg so that current node is centered
     //svg_obj.style.pos
-    /*var elipse_bounds = elipse_el.getBoundingClientRect();
+    //var elmnt = document.getElementById("content");
+    //elipse_el.scrollIntoView();
+    var elipse_bounds = elipse_el.getBoundingClientRect();
+    var parent_bounds = graph_div.getBoundingClientRect();
+    var view_size = parent_div.getBoundingClientRect();
     var cenx = (elipse_bounds.left + elipse_bounds.right)/2
     var ceny = (elipse_bounds.top + elipse_bounds.bottom)/2
-    svg_obj.style.positon = "absolute"
-    svg_obj.style.left = -cenx;
-    svg_obj.style.top = -ceny;
-    console.log(elipse_bounds)*/
+    var destx = (view_size.left + view_size.right)/2
+    var desty = (view_size.top + view_size.bottom)/2
+    var scrollx = cenx-parent_bounds.left - destx
+    var scrolly = ceny-parent_bounds.top - desty
+    console.log(elipse_bounds)
+    console.log(parent_bounds)
+    parent_div.scroll(scrollx, scrolly)
+
 
     // get the inner element by id
     node_data.forEach(function(data){
