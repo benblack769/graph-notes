@@ -4,13 +4,38 @@ import os
 import json
 import re
 
+def create_multiline_description(descrip):
+    words = descrip.split()
+    cur_line = ''
+    lines = []
+    MAX_LINE_LEN = 32
+    for word in words:
+        added_line = cur_line + " " + word
+        if len(added_line) > MAX_LINE_LEN:
+            lines.append(cur_line)
+            cur_line = word
+        else:
+            cur_line = added_line
+
+    if cur_line:
+        lines.append(cur_line)
+
+    return "<BR/>".join(lines)
+
+def create_label(node):
+    title = f"<B>{node['title']}</B>"
+    if node['short_description'] and node['short_description'] != "NA":
+        return title+"<BR/>"+create_multiline_description(node['short_description'])
+    else:
+        return title
+
 def generate_graphviz_code(all_nodes,all_relations,show_nodes,node_types,rel_types):
     show_nodes = set(show_nodes)
     nodes = [n for n in all_nodes if n['node'] in show_nodes]
     relations = [rel for rel in all_relations
                 if rel['source'] in show_nodes and rel['dest'] in show_nodes]
 
-    node_graph = [f'{n["node"]} [label="{n["node"]}",color="{node_types[n["type"]]["color"]}",id={n["node"]+"__el"}]' for n in nodes]
+    node_graph = [f'{n["node"]} [label=<{create_label(n)}>,color="{node_types[n["type"]]["color"]}",id={n["node"]+"__el"}]' for n in nodes]
     rel_graph = [f'{rel["source"]} -> {rel["dest"]} [color="{rel_types[rel["type"]]["color"]}"]' for rel in relations]
     graph = f'''
         digraph search {{
@@ -52,7 +77,7 @@ def generate_all_graphs(nodes,relations,node_types,rel_types):
     adj_list = get_adj_list(nodes,relations)
     graphs = []
     for node in nodes:
-        node_names = score_nodes(node['node'],adj_list)[:5]
+        node_names = score_nodes(node['node'],adj_list)[:8]
         viz_code = generate_graphviz_code(nodes,relations,node_names,node_types,rel_types)
         svg_code = call_graphviz(viz_code)
         graphs.append((node['node'],svg_code))

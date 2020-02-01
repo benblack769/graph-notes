@@ -21,3 +21,5 @@ SQL,read_your_write,requirement
 read_your_write,SQL,dependent
 NoSQL,eventual_consistency,requirement
 eventual_consistency,NoSQL,dependent
+SQL,sorting,dependent
+sorting,SQL,application

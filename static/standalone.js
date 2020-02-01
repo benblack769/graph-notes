@@ -25,7 +25,7 @@ function node_changed(node_data,node_name){
 
     var svg_text = document.getElementById(node_name+"__svg").innerHTML
     document.getElementById("svg_obj").innerHTML = svg_text
-    setup_state(node_data)
+    setup_state(node_data,node_name)
 }
 function setup_long_descript(node_info){
     document.getElementById("popup_content").innerHTML = ""
@@ -36,8 +36,30 @@ function setup_long_descript(node_info){
         })
     }
 }
-function setup_state(node_data){
-    var a = document.getElementById("svg_obj");
+function setup_state(node_data,node_name){
+    var svg_obj = document.getElementById("svg_obj");
+    var svg = svg_obj.firstChild;
+    var elipse_el = $("#"+node_name+"__el ellipse").get()[0];
+    //var elipse_el =
+    var graph_div = document.getElementById("svg_container");
+    //set the size and position of the parent div
+    graph_div.style.position = "absolute";
+    graph_div.style.width = svg.width * 2 - 100;
+    graph_div.style.height = svg.height * 2 - 100;
+
+    graph_div.style.left = -svg.width + 100;
+    graph_div.style.top = -svg.height + 100;
+
+    //set position of svg so that current node is centered
+    //svg_obj.style.pos
+    /*var elipse_bounds = elipse_el.getBoundingClientRect();
+    var cenx = (elipse_bounds.left + elipse_bounds.right)/2
+    var ceny = (elipse_bounds.top + elipse_bounds.bottom)/2
+    svg_obj.style.positon = "absolute"
+    svg_obj.style.left = -cenx;
+    svg_obj.style.top = -ceny;
+    console.log(elipse_bounds)*/
+
     // get the inner element by id
     node_data.forEach(function(data){
         var name = data['node']
