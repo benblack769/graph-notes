@@ -16,7 +16,7 @@ function node_changed(node_data,node_name){
     if(!node_name){
         node_name = node_data[0]['node']
     }
-    var node_info = node_data.filter(x=>x['node'] === node_name)[0]
+    var node_info = node_data.filter(function(x){return x['node'] === node_name})[0]
 
     setup_long_descript(node_info)
 
@@ -74,7 +74,9 @@ function setup_state(node_data,node_name){
     var scrolly = ceny-parent_bounds.top - desty
     console.log(elipse_bounds)
     console.log(parent_bounds)
-    parent_div.scroll(scrollx, scrolly)
+    if(parent_div.scroll){
+        parent_div.scroll(scrollx, scrolly)
+    }
 
 
     // get the inner element by id
