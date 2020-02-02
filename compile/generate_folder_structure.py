@@ -6,6 +6,8 @@ from compile.generate_graphs import generate_all_graphs,save_graphs_as_files,enc
 from compile.generate_legend import generate_legend
 import json
 import subprocess
+import multiprocessing
+from concurrent.futures import ThreadPoolExecutor
 
 def compile_kramdown(fname):
     kramdown_args = [
@@ -17,14 +19,25 @@ def compile_kramdown(fname):
     print(out)
     return out
 
+def markdown_to_html(paths):
+    source_path,dest_path = paths
+    out_html = compile_kramdown(source_path)#, extras=["fenced-code-blocks","header-ids","markdown-in-html","tables","wiki-tables"])
+    write_file(dest_path,out_html)
+
+
 def construct_html_from_markdown(source_folder,dest_folder):
     os.makedirs(dest_folder,exist_ok=True)
-    for fname in os.listdir(source_folder):
-        if ".md" == fname[-3:]:
-            source_path = os.path.join(source_folder,fname)
-            dest_path = os.path.join(dest_folder,fname)+".html"
-            out_html = compile_kramdown(source_path)#, extras=["fenced-code-blocks","header-ids","markdown-in-html","tables","wiki-tables"])
-            write_file(dest_path,out_html)
+    filenames = [fname for fname in os.listdir(source_folder) if ".md" == fname[-3:]]
+    changed_filenames = [fname for fname in os.listdir()]
+    pool = ThreadPoolExecutor(max_workers=multiprocessing.cpu_count())
+    out_paths = []
+    for fname in filenames:
+        spath = os.path.join(source_folder,fname)
+        dpath = os.path.join(dest_folder,fname)+".html"
+        #cached generatioin
+        if not os.path.exists(dpath) or os.path.getmtime(dpath) < os.path.getmtime(spath) + 10:
+            out_paths.append((spath,dpath))
+    pool.map(markdown_to_html,out_paths)
 
 def copy_static(source_folder,dest_folder):
     copy_tree(source_folder,dest_folder)

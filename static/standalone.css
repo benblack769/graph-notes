@@ -30,7 +30,7 @@ border: 1px solid black;
     position: absolute;
     height: 100%;
     /* size of box on larger screens*/
-    max-height: 800px;
+    max-height: 500px;
     max-width: 500px;
     /*differentiates popup background slightly from normal background*/
     background: white;/*rgba(0,0,0,0.65);*/
@@ -45,6 +45,46 @@ border: 1px solid black;
     overflow-y: auto;
     overflow-x: hidden;
 }
+.close-button{
+    font: normal 4em/normal Arial;
+    color: #422C1E;
+    cursor: pointer;
+    pointer-events:auto;
+    padding-right: 0.1em;
+}
+#button-section{
+    position: absolute;
+
+    top: 0;
+    right: 0;
+
+    text-align: right;
+    z-index: 2;/*positioned on top of other sections*/
+    pointer-events: none;
+}
+.title_section{
+    position: absolute;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50pt;
+    border-bottom-width: 1pt;
+    border-bottom-style: solid;
+    z-index:1;
+}
+#title_loc{
+
+    padding: 0.5em;
+}
+.popup_middle_pad{
+    position: absolute;
+    padding-left: 10pt;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 50pt;
+}
 .legend {
     position: absolute;
     right: 0;
@@ -52,6 +92,7 @@ border: 1px solid black;
     max-height: 100%;
     overflow-y: auto;
     z-index: 100;
+    background-color: rgba(255,255,255,0.75);
 }
 .popup_button{
     border: 2px solid black;

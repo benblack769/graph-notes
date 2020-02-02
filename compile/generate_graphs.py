@@ -39,6 +39,7 @@ def generate_graphviz_code(all_nodes,all_relations,show_nodes,node_types,rel_typ
     rel_graph = [f'{rel["source"]} -> {rel["dest"]} [color="{rel_types[rel["type"]]["color"]}"]' for rel in relations]
     graph = f'''
         digraph search {{
+        overlap = false;
         {linejoin(node_graph)}
         {linejoin(rel_graph)}
         }}

@@ -25,6 +25,7 @@ function node_changed(node_data,node_name){
 
     var svg_text = document.getElementById(node_name+"__svg").innerHTML
     document.getElementById("svg_obj").innerHTML = svg_text
+    document.getElementById("title_loc").innerHTML = node_info['title']
     setup_state(node_data,node_name)
 }
 function setup_long_descript(node_info){
