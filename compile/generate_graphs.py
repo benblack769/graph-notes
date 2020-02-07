@@ -24,8 +24,8 @@ def create_multiline_description(descrip):
 
 def create_label(node):
     title = f"<B>{node['title']}</B>"
-    if node['short_description'] and node['short_description'] != "NA":
-        return title+"<BR/>"+create_multiline_description(node['short_description'])
+    if node['description'] and node['description'] != "NA":
+        return title+"<BR/>"+create_multiline_description(node['description'])
     else:
         return title
 
