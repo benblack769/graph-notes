@@ -30,8 +30,8 @@ function node_changed(node_data,node_name){
 }
 function setup_long_descript(node_info){
     document.getElementById("popup_content").innerHTML = ""
-    if(node_info['long_description_fname']){
-        var node_fname = "/long_descriptions/"+node_info['long_description_fname']+".html"
+    if(node_info['node']){
+        var node_fname = "/long_descriptions/"+node_info['node']+".md.html"
         $.get(node_fname,"",function(data){
             document.getElementById("popup_content").innerHTML = data
         })
