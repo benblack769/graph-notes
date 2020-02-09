@@ -11,6 +11,7 @@ def generate_base(source_folder,dest_folder):
     base_template = read_file("templates/base.html")
     out_base = base_template.format(
         base_style=read_file("static/standalone.css"),
+        markdown_alt=read_file("static/markdown_alt.css"),
         pygments=read_file("static/pygments.css"),
         base_script=read_file("static/standalone.js"),
         svg_data_elements=read_file(pjoin(dest_folder,"graphs.html")),
