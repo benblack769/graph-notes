@@ -33,7 +33,7 @@ def generate_graphviz_code(all_nodes,all_relations,show_nodes,node_types,rel_typ
     show_nodes = set(show_nodes)
     nodes = [n for n in all_nodes if n['node'] in show_nodes]
     relations = [rel for rel in all_relations
-                if rel['source'] in show_nodes and rel['dest'] in show_nodes]
+                if rel['source'] in show_nodes and rel['dest'] in show_nodes and (rel['type'] == 'dependent' or rel['type'] == 'equal')]
 
     node_graph = [f'{n["node"]} [label=<{create_label(n)}>,color="{node_types[n["type"]]["color"]}",id={n["node"]+"__el"}]' for n in nodes]
     rel_graph = [f'{rel["source"]} -> {rel["dest"]} [color="{rel_types[rel["type"]]["color"]}"]' for rel in relations]
@@ -56,6 +56,7 @@ def call_graphviz(graphviz_code):
 
 def get_adj_list(nodes,relations):
     return {n['node']:[rel['dest'] for rel in relations if rel['source'] == n['node']] for n in nodes}
+
 
 def score_nodes(root,adj_list):
     scores = dict()
