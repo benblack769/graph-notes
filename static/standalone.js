@@ -11,6 +11,9 @@ function setup_popup(){
     $("#popup_button").click(function(e){
         $("#popup").show()
     })
+    $("#close_button").click(function(e){
+        $('#popup').hide();
+    })
 }
 function node_changed(node_data,node_name){
     if(!node_name){
@@ -68,12 +71,13 @@ function setup_state(node_data,node_name){
     var view_size = parent_div.getBoundingClientRect();
     var cenx = (elipse_bounds.left + elipse_bounds.right)/2
     var ceny = (elipse_bounds.top + elipse_bounds.bottom)/2
-    var destx = (view_size.left + view_size.right)/2
-    var desty = (view_size.top + view_size.bottom)/2
+    var destx = (-view_size.left + view_size.right)/2
+    var desty = (-view_size.top + view_size.bottom)/2
     var scrollx = cenx-parent_bounds.left - destx
     var scrolly = ceny-parent_bounds.top - desty
     console.log(elipse_bounds)
     console.log(parent_bounds)
+    console.log(view_size)
     if(parent_div.scroll){
         parent_div.scroll(scrollx, scrolly)
     }

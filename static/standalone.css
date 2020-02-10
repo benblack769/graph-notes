@@ -33,6 +33,7 @@ border: 1px solid black;
         bottom: 0;
         background: rgba(0,0,0,0.35);
         z-index: 100000; /* goes above leaflet link */
+        display:none;
     }
 
     .popup_body{
