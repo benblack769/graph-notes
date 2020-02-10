@@ -78,9 +78,12 @@ def construct_html_from_markdown(source_folder,dest_folder):
 def copy_static(source_folder,dest_folder):
     copy_tree(source_folder,dest_folder)
 
+
 def generate_all_files(source_folder,dest_folder):
     construct_html_from_markdown(os.path.join(source_folder,"long_descriptions"),os.path.join(dest_folder,"long_descriptions"))
     copy_static(os.path.join(source_folder,"linked_data"),os.path.join(dest_folder,"linked_data"))
+    copy_static("static",dest_folder)
+
     graph_path = os.path.join(dest_folder,"graphs")
     graph_data = yaml.safe_load(read_file(os.path.join(source_folder,"graphdef.yaml")))
     nodes = graph_data['nodes']

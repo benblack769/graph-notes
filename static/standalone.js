@@ -35,6 +35,20 @@ function setup_long_descript(node_info){
     document.getElementById("popup_content").innerHTML = ""
     if(node_info['node']){
         var node_fname = "/long_descriptions/"+node_info['node']+".md.html"
+        // var obj = document.getElementById("hid_obj")
+        // obj.data = node_fname
+        //
+        // console.log("hi there!")
+        // function load(){
+        //     console.log("loadded there!")
+        //     var objdata = obj.contentDocument
+        //     console.log(objdata)
+        //     document.getElementById("popup_content").innerHTML = objdata
+        // }
+        // //$(obj).ready( load)
+        // //$(obj).ready( load)
+        // obj.onload = load
+
         $.get(node_fname,"",function(data){
             document.getElementById("popup_content").innerHTML = data
         })
