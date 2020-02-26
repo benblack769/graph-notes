@@ -1,6 +1,3 @@
-function on_popup_create(){
-    //$()
-}
 function setup_popup(){
     $("#popup").click(function(event) {
         $("#popup").hide()
@@ -134,7 +131,11 @@ $(document).ready(function(){
     setup_popup()
 
     set_internal_link_nav(node_js_info)
-    set_window_loc((''+window.location).split('#')[1])
+    var start_name = (''+window.location).split('#')[1]
+    if (!start_name){
+        start_name = node_js_info[0]['node']
+    }
+    set_window_loc(start_name)
     //node_changed(node_js_info,(''+window.location).split('#')[1])
     //node_changed(node_js_info,node_js_info[0]['node'])
     //setup_initial_state(node_js_info)
