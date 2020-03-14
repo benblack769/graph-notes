@@ -3,6 +3,8 @@ import subprocess
 import os
 import json
 import re
+import multiprocessing
+from concurrent.futures import ThreadPoolExecutor
 
 def create_multiline_description(descrip):
     words = descrip.split()
@@ -77,12 +79,14 @@ def score_nodes(root,adj_list):
 
 def generate_all_graphs(nodes,relations,node_types,rel_types):
     adj_list = get_adj_list(nodes,relations)
-    graphs = []
+    vis_codes = []
     for node in nodes:
         node_names = score_nodes(node['node'],adj_list)[:8]
         viz_code = generate_graphviz_code(nodes,relations,node_names,node_types,rel_types)
-        svg_code = call_graphviz(viz_code)
-        graphs.append((node['node'],svg_code))
+        vis_codes.append(viz_code)
+    pool = ThreadPoolExecutor(max_workers=multiprocessing.cpu_count())
+    svg_codes = pool.map(call_graphviz,vis_codes)
+    graphs = [(node['node'],svg_code) for node,svg_code in zip(nodes,svg_codes)]
     return graphs
 
 def save_graphs_as_files(dest_folder,svg_list):
