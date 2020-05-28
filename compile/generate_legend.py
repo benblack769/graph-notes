@@ -16,22 +16,16 @@ def generate_legend_part(types):
 
 
 
-def generate_legend(node_types,rel_types):
+def generate_legend(node_types):
     node_part = generate_legend_part(node_types)
-    rel_part = generate_legend_part(rel_types)
     return f'''
         <div class="legend_table">
             <h4>Node types</h4>
             {node_part}
-        </div>
-        <div class="legend_table">
-            <h4>Relation types</h4>
-            {rel_part}
         </div>
     '''
 
 
 if __name__ == "__main__":
     node_types = read_csv("examples/computer_science/node-types.csv")
-    rel_types = read_csv("examples/computer_science/rel-types.csv")
-    print(generate_legend(node_types,rel_types))
+    print(generate_legend(node_types))

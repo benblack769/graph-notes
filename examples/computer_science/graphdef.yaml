@@ -1,80 +1,36 @@
-node_types:
-    idea:
-        name: Idea
-        color: black
-    language:
-        name: Language
-        color: green
-    algorithm:
-        name: Algorithm
-        color: blue
-    system:
-        name: System
-        color: red
-nodes:
-    database:
-        title: "Database"
-        description: "A data storage system with efficient methods to access and store data elements"
-        type: idea
-    relational_database:
-        title: "Relational Database"
-        description: "A database which stores a collection of tables and provides ablities to access the table rows"
-        type: idea
-    SQL:
-        title: "SQL"
-        description: "The standard language for manipulating relational databases"
-        type: language
-    RDBMS:
-        title: "RDBMS"
-        description: "Stands for Relational Database Management System"
-        type: system
-    sorting:
-        title: "Sorting"
-        description: "reordering data so that it is ascending or descending with respect to some key"
-        type: idea
-    mergesort:
-        title: "Merge Sort"
-        description: "recursive sorting algorithm based of merging two sorted lists into one"
-        type: algorithm
-    merge:
-        title: "Merge"
-        description: "combining two sorted lists into one sorted listbinary_search"
-        type: algorithm
-    binary_search:
-        title: "Binary Search"
-        description: "searching a sorted list for a specific item"
-        type: algorithm
-    NoSQL:
-        title: "NoSQL Database"
-        description: "Marketing term for databases that have some system other than SQL"
-        type: system
-    data_consistency:
-        title: "Data Consistency"
-        description: "Inconsistent data is when you querry the same key of a database and get two different responses"
-        type: idea
-    eventual_consistency:
-        title: "Eventual Consistency"
-        description: "If you let the database churn for long enough without changing the entry every querry will give the same response"
-        type: idea
-    read_your_write:
-        title: "Read-Your-Write Consistency"
-        description: "Once an element is updated,every querry afterward gives same response"
-        type: idea
-    read_after_write:
-        title: "Read-after-Write Consistency"
-        description: "Once an element is created for the first time,every querry afterward gives same response"
-        type: idea
-relations:
-    - database <- relational_database
-    - relational_database <- SQL
-    - sorting  <- mergesort
-    - mergesort - merge
-    - sorting - binary_search
-    - database <- NoSQL
-    - SQL - NoSQL
-    - data_consistency <- eventual_consistency
-    - data_consistency <- read_your_write
-    - data_consistency <- read_after_write
-    - SQL -> read_your_write
-    - NoSQL -> eventual_consistency
-    - SQL - sorting
+# acceptable types are `deliverable and `subtask`
+# dependencies must all match with a label
+# dependencies must not be cyclic
+pettingzoo:
+    title: "PettingZoo"
+    description: "Multi-agent RL environments"
+    type: deliverable
+    dependencies: []
+    priority: 30
+pettingzoo_paper:
+    title: "PettingZoo paper"
+    description: "IEEE paper for pettingzoo"
+    type: deliverable
+    dependencies:
+      - pettingzoo
+      - supersuit
+    priority: 1
+supersuit:
+    title: "SuperSuit"
+    description: "Wrapper library for pettingzoo and gym"
+    type: deliverable
+    dependencies:
+      - reward_wrapper
+    priority: 10
+reward_wrapper:
+    title: "Reward Wrapper"
+    description: "Reward wrapper for supersuit"
+    type: subtask
+    dependencies: []
+    priority: 5
+handoff_multi_ale:
+    title: "Handoff Multi-agent ALE"
+    description: ""
+    type: deliverable
+    dependencies: []
+    priority: -1
