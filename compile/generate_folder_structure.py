@@ -93,7 +93,7 @@ def generate_all_files(source_folder,dest_folder):
     rel_types = {
         "dependent": {
             "name": "Dependent",
-            "color": "green",
+            "color": "black",
         },
         "equal": {
             "name": "Equal",
@@ -101,7 +101,7 @@ def generate_all_files(source_folder,dest_folder):
         },
         "application": {
             "name": "Application",
-            "color": "red",
+            "color": "black",
         }
     }
     #nodes = read_csv(os.path.join(source_folder,"nodes.csv"))
