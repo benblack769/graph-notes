@@ -1,3 +1,4 @@
+max_graph_size: 5
 node_types:
     idea:
         name: Idea

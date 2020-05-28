@@ -88,6 +88,7 @@ def generate_all_files(source_folder,dest_folder):
     graph_data = yaml.safe_load(read_file(os.path.join(source_folder,"graphdef.yaml")))
     nodes = graph_data['nodes']
     node_types = graph_data['node_types']
+    graph_size = graph_data['max_graph_size']
 
     rels = sum([parse_relation(rel) for rel in graph_data['relations']],[])
     rel_types = {
@@ -114,7 +115,7 @@ def generate_all_files(source_folder,dest_folder):
     node_types_list = [{"type_id":k,**v} for k,v in node_types.items()]
     rel_types_list = [{"type_id":k,**v} for k,v in rel_types.items()]
 
-    all_graphs = generate_all_graphs(nodes_list,rels,node_types,rel_types)
+    all_graphs = generate_all_graphs(graph_size,nodes_list,rels,node_types,rel_types)
     save_graphs_as_files(graph_path,all_graphs)
     graph_html = encode_graphs_as_html(all_graphs)
     json_str = json.dumps(nodes_list)

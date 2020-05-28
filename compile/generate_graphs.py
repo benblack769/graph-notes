@@ -77,11 +77,11 @@ def score_nodes(root,adj_list):
     sortables_scores.sort(reverse=True)
     return [n for v,n in sortables_scores]
 
-def generate_all_graphs(nodes,relations,node_types,rel_types):
+def generate_all_graphs(graph_size,nodes,relations,node_types,rel_types):
     adj_list = get_adj_list(nodes,relations)
     vis_codes = []
     for node in nodes:
-        node_names = score_nodes(node['node'],adj_list)[:8]
+        node_names = score_nodes(node['node'],adj_list)[:graph_size]
         viz_code = generate_graphviz_code(nodes,relations,node_names,node_types,rel_types)
         vis_codes.append(viz_code)
     pool = ThreadPoolExecutor(max_workers=multiprocessing.cpu_count())
