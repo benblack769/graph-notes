@@ -79,14 +79,22 @@ def score_nodes(root,adj_list):
 
 def generate_all_graphs(graph_size,nodes,relations,node_types,rel_types):
     adj_list = get_adj_list(nodes,relations)
+    nodes_generated = {}
+    node_to_idx = {}
     vis_codes = []
     for node in nodes:
-        node_names = score_nodes(node['node'],adj_list)[:graph_size]
-        viz_code = generate_graphviz_code(nodes,relations,node_names,node_types,rel_types)
-        vis_codes.append(viz_code)
+        node_names = score_nodes(node['node'],adj_list)[:graph_size] if graph_size < len(adj_list) else list(adj_list)
+        uniq_node_names = tuple(sorted(node_names))
+        if uniq_node_names not in nodes_generated:
+            nodes_generated[uniq_node_names] = len(vis_codes)
+            node_to_idx[node['node']] = len(vis_codes)
+            viz_code = generate_graphviz_code(nodes,relations,node_names,node_types,rel_types)
+            vis_codes.append(viz_code)
+        else:
+            node_to_idx[node['node']] = nodes_generated[uniq_node_names]
     pool = ThreadPoolExecutor(max_workers=multiprocessing.cpu_count())
-    svg_codes = pool.map(call_graphviz,vis_codes)
-    graphs = [(node['node'],svg_code) for node,svg_code in zip(nodes,svg_codes)]
+    svg_codes = list(pool.map(call_graphviz,vis_codes))
+    graphs = [(node['node'],svg_codes[node_to_idx[node['node']]]) for node in nodes]
     return graphs
 
 def save_graphs_as_files(dest_folder,svg_list):
