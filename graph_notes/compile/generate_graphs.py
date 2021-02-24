@@ -1,4 +1,4 @@
-from compile.utils import read_csv,join,key_dictlist_by,linejoin,read_file,write_file
+from .utils import read_csv,join,key_dictlist_by,linejoin,read_file,write_file
 import subprocess
 import os
 import json

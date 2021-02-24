@@ -1,9 +1,9 @@
 import os
-from compile.utils import read_file,write_file,read_csv,key_dictlist_by
+from .utils import read_file,write_file,read_csv,key_dictlist_by
 #import markdown2
 from distutils.dir_util import copy_tree
-from compile.generate_graphs import generate_all_graphs,save_graphs_as_files,encode_graphs_as_html
-from compile.generate_legend import generate_legend
+from .generate_graphs import generate_all_graphs,save_graphs_as_files,encode_graphs_as_html
+from .generate_legend import generate_legend
 import json
 import subprocess
 import multiprocessing
@@ -79,10 +79,10 @@ def copy_static(source_folder,dest_folder):
     copy_tree(source_folder,dest_folder)
 
 
-def generate_all_files(source_folder,dest_folder):
+def generate_all_files(source_folder,dest_folder,libdir):
     construct_html_from_markdown(os.path.join(source_folder,"long_descriptions"),os.path.join(dest_folder,"long_descriptions"))
     copy_static(os.path.join(source_folder,"linked_data"),os.path.join(dest_folder,"linked_data"))
-    copy_static("static",dest_folder)
+    copy_static(libdir/"static",dest_folder)
 
     graph_path = os.path.join(dest_folder,"graphs")
     graph_data = yaml.safe_load(read_file(os.path.join(source_folder,"graphdef.yaml")))

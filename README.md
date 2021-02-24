@@ -1,11 +1,10 @@
-# interactive_info_graph
-A HTML based interactive knowledge graph for communicating highly complex relationships.
+# graph-notes
 
-Idea is that some subjects are so interrelated that they contain an enormous number of references. The idea is to encode these references in an explicit graph, and to show the user the local connections of the graph as they move along it. Also allows for long form writeups about specific subjects.
+Most notes are organized in a tree. Trees cannot describe the beautiful relationships between data. Graphs can. This tool encodes the references in an explicit graph, and to show the user some of the more important nearby connections of the graph as they move along it. Also allows for short, medium, and long form descriptions of subject, so you can dive down in as much detail as you would like.
 
 ### Install
 
-This is a python project. Depends on python 3.7. Also has a system dependency and one python package dependency:
+This is a python project. However, to support its advanced markdown features, it also depends on node and ruby packages.
 
 binary dependencies:
 
@@ -13,7 +12,7 @@ binary dependencies:
 
 ruby packages:
 
-    sudo gem install rouge, kramdown-math-katex
+    sudo gem install rouge kramdown-math-katex
 
 node packages:
 
