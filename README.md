@@ -23,8 +23,6 @@ node packages:
 
 The example in `examples/computer_science/` looks like this:
 
-![screenshot](writeup_files/display_screenshot.PNG)
+![screenshot](writeup_files/screenshot_info_graph.PNG)
 
-The long form writeup is in markdown and has a number of features, looks like this:
-
-![screenshot](writeup_files/reading_mode.PNG)
+As you can see, the graph and key appear in the center of the screen, and any long form description appears on the left.
