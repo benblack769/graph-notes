@@ -3,3 +3,5 @@ test_out
 examples/example2
 *.gz
 test_out.html
+.jekyll-cache
+_site
