@@ -13,9 +13,10 @@ if __name__ == "__main__":
     ''')
     parser.add_argument('source_folder', help='Path to folder full of graphdef and markdown description files.')
     parser.add_argument('dest_folder', help='Path to output folder where html files will be stored.')
+    parser.add_argument('--no-cleanup', action="store_false", help='Leaves temporary files in generated website directory.')
     args = parser.parse_args()
 
     source_folder = args.source_folder
     dest_folder = args.dest_folder
 
-    out_text = generate_standalone(source_folder,dest_folder)
+    out_text = generate_standalone(source_folder,dest_folder,cleanup=args.no_cleanup)

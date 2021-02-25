@@ -4,7 +4,7 @@ a | a | b
 --- | --- | ---
 table | table2 | table 3
 
-![laurals](/linked_data/code_screen.png)
+![laurals](linked_data/code_screen.png)
 
 ~~~ python
 def filter(l,f):

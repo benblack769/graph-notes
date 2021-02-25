@@ -33,7 +33,7 @@ function node_changed(node_data,node_name){
 function setup_long_descript(node_info){
     document.getElementById("popup_content").innerHTML = ""
     if(node_info['node']){
-        var node_fname = "/long_descriptions/"+node_info['node']+".md.html"
+        var node_fname = window.location.pathname+"long_descriptions/"+node_info['node']+".md.html"
         // var obj = document.getElementById("hid_obj")
         // obj.data = node_fname
         //

@@ -84,7 +84,7 @@ def copy_static(source_folder,dest_folder):
 def generate_all_files(source_folder,dest_folder,libdir):
     construct_html_from_markdown(os.path.join(source_folder,"long_descriptions"),os.path.join(dest_folder,"long_descriptions"))
     copy_static(os.path.join(source_folder,"linked_data"),os.path.join(dest_folder,"linked_data"))
-    copy_static(libdir/"static",dest_folder)
+    copy_static(libdir/"static/fonts",os.path.join(dest_folder,"fonts"))
 
     graph_path = os.path.join(dest_folder,"graphs")
     graph_data = yaml.safe_load(read_file(os.path.join(source_folder,"graphdef.yaml")))
@@ -121,9 +121,9 @@ def generate_all_files(source_folder,dest_folder,libdir):
     save_graphs_as_files(graph_path,all_graphs)
     graph_html = encode_graphs_as_html(all_graphs)
     json_str = json.dumps(nodes_list)
-    js_str = f"var node_js_info = {json_str}"
-    write_file(os.path.join(dest_folder,"node_js_info.js"), js_str)
     write_file(os.path.join(dest_folder,"node_js_info.json"), json_str)
+    for node in nodes_list:
+        pathlib.Path(os.path.join(dest_folder,"long_descriptions",node['node']+".md.html")).touch()
 
     legend_html = generate_legend(node_types_list,rel_types_list)
     write_file(os.path.join(dest_folder,"legend.html"), legend_html)
