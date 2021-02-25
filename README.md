@@ -19,6 +19,9 @@ node packages:
     sudo npm install -g katex
 
 
+### Run
+
+
 ### Example output
 
 The example in `examples/computer_science/` looks like this:
