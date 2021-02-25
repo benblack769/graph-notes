@@ -10,11 +10,13 @@ import multiprocessing
 from concurrent.futures import ThreadPoolExecutor
 import yaml
 import copy
+import pathlib
 
 def compile_kramdown(fname):
+    libdir = pathlib.Path(__file__).parent
     kramdown_args = [
         "ruby",
-        "compile/kram.rb",
+        libdir/"kram.rb",
         fname
     ]
     out = subprocess.run(kramdown_args,stdout=subprocess.PIPE,encoding="utf-8").stdout

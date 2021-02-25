@@ -1,0 +1,129 @@
+
+
+<svg width="722pt" height="537pt"
+ viewBox="0.00 0.00 722.41 537.44" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 533.4356)">
+<title>search</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-533.4356 718.4077,-533.4356 718.4077,4 -4,4"/>
+
+<g id="relational_database__el" class="node">
+<title>relational_database</title>
+<ellipse fill="none" stroke="#000000" cx="126.5721" cy="-327.9727" rx="126.6443" ry="55.3091"/>
+<text text-anchor="start" x="68.0721" y="-352.7727" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">Relational Database</text>
+<text text-anchor="start" x="53.5721" y="-338.7727" font-family="Times,serif" font-size="14.00" fill="#000000"> A database which stores a</text>
+<text text-anchor="start" x="63.0721" y="-324.7727" font-family="Times,serif" font-size="14.00" fill="#000000">collection of tables and</text>
+<text text-anchor="start" x="45.0721" y="-310.7727" font-family="Times,serif" font-size="14.00" fill="#000000">provides ablities to access the</text>
+<text text-anchor="start" x="98.0721" y="-296.7727" font-family="Times,serif" font-size="14.00" fill="#000000">table rows</text>
+</g>
+
+<g id="SQL__el" class="node">
+<title>SQL</title>
+<ellipse fill="none" stroke="#00ff00" cx="290.5721" cy="-181.664" rx="115.0173" ry="45.011"/>
+<text text-anchor="start" x="276.5721" y="-199.464" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">SQL</text>
+<text text-anchor="start" x="217.0721" y="-185.464" font-family="Times,serif" font-size="14.00" fill="#000000"> The standard language for</text>
+<text text-anchor="start" x="227.0721" y="-171.464" font-family="Times,serif" font-size="14.00" fill="#000000">manipulating relational</text>
+<text text-anchor="start" x="264.5721" y="-157.464" font-family="Times,serif" font-size="14.00" fill="#000000">databases</text>
+</g>
+
+<g id="edge1" class="edge">
+<title>relational_database&#45;&gt;SQL</title>
+<path fill="none" stroke="#000000" d="M182.5529,-278.0307C199.934,-262.5246 219.0551,-245.4662 236.3167,-230.0666"/>
+<polygon fill="#000000" stroke="#000000" points="238.9718,-232.3883 244.1039,-223.1195 234.3118,-227.1649 238.9718,-232.3883"/>
+</g>
+
+<g id="sorting__el" class="node">
+<title>sorting</title>
+<ellipse fill="none" stroke="#000000" cx="286.5721" cy="-45.2548" rx="125.7302" ry="45.011"/>
+<text text-anchor="start" x="265.0721" y="-63.0548" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">Sorting</text>
+<text text-anchor="start" x="211.0721" y="-49.0548" font-family="Times,serif" font-size="14.00" fill="#000000"> reordering data so that it is</text>
+<text text-anchor="start" x="205.5721" y="-35.0548" font-family="Times,serif" font-size="14.00" fill="#000000">ascending or descending with</text>
+<text text-anchor="start" x="232.0721" y="-21.0548" font-family="Times,serif" font-size="14.00" fill="#000000">respect to some key</text>
+</g>
+
+<g id="edge8" class="edge">
+<title>SQL&#45;&gt;sorting</title>
+<path fill="none" stroke="#000000" d="M282.8367,-136.2417C282.1438,-124.8524 281.7016,-112.5056 281.5539,-100.689"/>
+<polygon fill="#000000" stroke="#000000" points="285.0529,-100.4605 281.501,-90.4788 278.053,-100.4968 285.0529,-100.4605"/>
+</g>
+
+<g id="NoSQL__el" class="node">
+<title>NoSQL</title>
+<ellipse fill="none" stroke="#ff0000" cx="571.5721" cy="-45.2548" rx="141.3428" ry="45.011"/>
+<text text-anchor="start" x="520.5721" y="-63.0548" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">NoSQL Database</text>
+<text text-anchor="start" x="488.5721" y="-49.0548" font-family="Times,serif" font-size="14.00" fill="#000000"> Marketing term for databases</text>
+<text text-anchor="start" x="479.5721" y="-35.0548" font-family="Times,serif" font-size="14.00" fill="#000000">that have some system other than</text>
+<text text-anchor="start" x="558.5721" y="-21.0548" font-family="Times,serif" font-size="14.00" fill="#000000">SQL</text>
+</g>
+
+<g id="edge2" class="edge">
+<title>SQL&#45;&gt;NoSQL</title>
+<path fill="none" stroke="#000000" d="M359.4568,-145.288C395.8513,-127.2041 440.961,-105.2718 480.2297,-86.5575"/>
+<polygon fill="#000000" stroke="#000000" points="482.027,-89.5784 489.554,-82.1222 479.0201,-83.2571 482.027,-89.5784"/>
+</g>
+
+<g id="edge9" class="edge">
+<title>sorting&#45;&gt;SQL</title>
+<path fill="none" stroke="#000000" d="M294.2955,-90.4788C294.9913,-101.8569 295.4366,-114.2012 295.5877,-126.0238"/>
+<polygon fill="#000000" stroke="#000000" points="292.0888,-126.2611 295.6437,-136.2417 299.0887,-126.2227 292.0888,-126.2611"/>
+</g>
+
+<g id="edge3" class="edge">
+<title>NoSQL&#45;&gt;SQL</title>
+<path fill="none" stroke="#000000" d="M498.0201,-83.9473C460.5834,-102.5083 414.9027,-124.6819 375.9266,-143.2116"/>
+<polygon fill="#000000" stroke="#000000" points="374.224,-140.1454 366.6896,-147.5941 377.2246,-146.4697 374.224,-140.1454"/>
+</g>
+
+<g id="data_consistency__el" class="node">
+<title>data_consistency</title>
+<ellipse fill="none" stroke="#000000" cx="489.5721" cy="-474.2813" rx="128.8872" ry="55.3091"/>
+<text text-anchor="start" x="439.0721" y="-499.0813" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">Data Consistency</text>
+<text text-anchor="start" x="406.5721" y="-485.0813" font-family="Times,serif" font-size="14.00" fill="#000000"> Inconsistent data is when you</text>
+<text text-anchor="start" x="421.5721" y="-471.0813" font-family="Times,serif" font-size="14.00" fill="#000000">querry the same key of a</text>
+<text text-anchor="start" x="407.0721" y="-457.0813" font-family="Times,serif" font-size="14.00" fill="#000000">database and get two different</text>
+<text text-anchor="start" x="463.0721" y="-443.0813" font-family="Times,serif" font-size="14.00" fill="#000000">responses</text>
+</g>
+
+<g id="eventual_consistency__el" class="node">
+<title>eventual_consistency</title>
+<ellipse fill="none" stroke="#000000" cx="571.5721" cy="-181.664" rx="142.6713" ry="55.3091"/>
+<text text-anchor="start" x="509.0721" y="-206.464" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">Eventual Consistency</text>
+<text text-anchor="start" x="491.5721" y="-192.464" font-family="Times,serif" font-size="14.00" fill="#000000"> If you let the database churn</text>
+<text text-anchor="start" x="478.5721" y="-178.464" font-family="Times,serif" font-size="14.00" fill="#000000">for long enough without changing</text>
+<text text-anchor="start" x="485.0721" y="-164.464" font-family="Times,serif" font-size="14.00" fill="#000000">the entry every querry will give</text>
+<text text-anchor="start" x="521.5721" y="-150.464" font-family="Times,serif" font-size="14.00" fill="#000000">the same response</text>
+</g>
+
+<g id="edge4" class="edge">
+<title>data_consistency&#45;&gt;eventual_consistency</title>
+<path fill="none" stroke="#000000" d="M532.4339,-421.8546C540.3789,-409.7618 547.6989,-396.5025 552.5721,-383.127 568.3927,-339.7043 572.9711,-287.7109 573.6837,-247.4212"/>
+<polygon fill="#000000" stroke="#000000" points="577.1859,-247.2138 573.7868,-237.179 570.1863,-247.1433 577.1859,-247.2138"/>
+</g>
+
+<g id="read_your_write__el" class="node">
+<title>read_your_write</title>
+<ellipse fill="none" stroke="#000000" cx="407.5721" cy="-327.9727" rx="136.4432" ry="45.011"/>
+<text text-anchor="start" x="319.0721" y="-345.7727" font-family="Times,serif" font-weight="bold" font-size="14.00" fill="#000000">Read&#45;Your&#45;Write Consistency</text>
+<text text-anchor="start" x="353.0721" y="-331.7727" font-family="Times,serif" font-size="14.00" fill="#000000"> Once an element is</text>
+<text text-anchor="start" x="321.5721" y="-317.7727" font-family="Times,serif" font-size="14.00" fill="#000000">updated,every querry afterward</text>
+<text text-anchor="start" x="351.5721" y="-303.7727" font-family="Times,serif" font-size="14.00" fill="#000000">gives same response</text>
+</g>
+
+<g id="edge5" class="edge">
+<title>data_consistency&#45;&gt;read_your_write</title>
+<path fill="none" stroke="#000000" d="M459.504,-420.6322C452.2992,-407.777 444.6085,-394.0549 437.414,-381.218"/>
+<polygon fill="#000000" stroke="#000000" points="440.4668,-379.5061 432.5245,-372.494 434.3604,-382.9285 440.4668,-379.5061"/>
+</g>
+
+<g id="edge7" class="edge">
+<title>eventual_consistency&#45;&gt;NoSQL</title>
+<path fill="none" stroke="#000000" d="M571.5721,-126.1812C571.5721,-117.7909 571.5721,-109.1343 571.5721,-100.7438"/>
+<polygon fill="#000000" stroke="#000000" points="575.0722,-100.6771 571.5721,-90.6771 568.0722,-100.6771 575.0722,-100.6771"/>
+</g>
+
+<g id="edge6" class="edge">
+<title>read_your_write&#45;&gt;SQL</title>
+<path fill="none" stroke="#000000" d="M372.4683,-284.0752C359.6266,-268.0168 344.9842,-249.7064 331.666,-233.0519"/>
+<polygon fill="#000000" stroke="#000000" points="334.2269,-230.6503 325.248,-225.0262 328.76,-235.0221 334.2269,-230.6503"/>
+</g>
+</g>
+</svg>
