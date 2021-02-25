@@ -18,14 +18,26 @@ node packages:
 
     sudo npm install -g katex
 
+Install python package
+
+    pip install git+https://github.com/weepingwillowben/graph-notes/
 
 ### Run
 
+To generate the example website you can run
+
+    generate-graph-notes examples/computer_science/ test_out
 
 ### Example output
 
-The example in `examples/computer_science/` looks like this:
+To view the generated website you can run:
 
-![screenshot](writeup_files/screenshot_info_graph.PNG)
+    python -m http.server
+
+And once the server is up, you can go to [http://localhost:8000/test_out/#binary_search](http://localhost:8000/test_out/#binary_search) to view the result.
+
+The result should look like this [(link to deployed example here)](https://weepingwillowben.github.io/graph-notes/test_out/):
+
+[![screenshot](writeup_files/screenshot_info_graph.PNG)](https://weepingwillowben.github.io/graph-notes/test_out/#SQL)
 
 As you can see, the graph and key appear in the center of the screen, and any long form description appears on the left.
