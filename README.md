@@ -20,7 +20,7 @@ node packages:
 
 Install python package
 
-    pip install git+https://github.com/weepingwillowben/graph-notes/
+    pip install git+https://github.com/benblack769/graph-notes/
 
 ### Run
 
@@ -36,8 +36,8 @@ To view the generated website you can run:
 
 And once the server is up, you can go to [http://localhost:8000/test_out/#binary_search](http://localhost:8000/test_out/#binary_search) to view the result.
 
-The result should look like this [(link to deployed example here)](https://weepingwillowben.github.io/graph-notes/test_out/):
+The result should look like this [(link to deployed example here)](https://benblack769.github.io/graph-notes/test_out/):
 
-[![screenshot](writeup_files/screenshot_info_graph.PNG)](https://weepingwillowben.github.io/graph-notes/test_out/#SQL)
+[![screenshot](writeup_files/screenshot_info_graph.PNG)](https://benblack769.github.io/graph-notes/test_out/#SQL)
 
 As you can see, the graph and key appear in the center of the screen, and any long form description appears on the left.

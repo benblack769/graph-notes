@@ -11,7 +11,7 @@ setuptools.setup(
     description="Graph based note display engine based on HTML",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/weepingwillowben/graph-notes",
+    url="https://github.com/benblack769/graph-notes",
     keywords=["notes", "visualization"],
     packages=setuptools.find_packages(),
     install_requires=[],
