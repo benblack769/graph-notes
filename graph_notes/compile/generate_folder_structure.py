@@ -19,8 +19,9 @@ def compile_kramdown(fname):
         libdir/"kram.rb",
         fname
     ]
+    # print(kramdown_args)
     out = subprocess.run(kramdown_args,stdout=subprocess.PIPE,encoding="utf-8").stdout
-    print(out)
+    # print(out)
     return out
 
 def markdown_to_html(paths):
@@ -72,9 +73,7 @@ def construct_html_from_markdown(source_folder,dest_folder):
     for fname in filenames:
         spath = os.path.join(source_folder,fname)
         dpath = os.path.join(dest_folder,fname)+".html"
-        #cached generatioin
-        if not os.path.exists(dpath) or os.path.getmtime(dpath) < os.path.getmtime(spath) + 10:
-            out_paths.append((spath,dpath))
+        out_paths.append((spath,dpath))
     pool.map(markdown_to_html,out_paths)
 
 def copy_static(source_folder,dest_folder):
